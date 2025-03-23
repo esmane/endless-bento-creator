@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>create the night away</title>
+
+        <link rel="icon" href="icons/icon.png">
+        <link rel="apple-touch-icon" href="icons/icon-big.png">
+
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" media="print" href="print.css">
+        
+        <script src="js/main.js"></script>
+        <script src="js/setup.js"></script>
+        <script src="js/util.js"></script>
+        <script src="js/load.js"></script>
+        <script src="js/interface/grid.js"></script>
+        <script src="js/interface/buttons.js"></script>
+        <script src="js/interface/clues.js"></script>
+        <script src="js/interface/menu.js"></script>
+        <script src="js/interface/modals.js"></script>
+        <script src="js/solver/solverutil.js"></script>
+        <script src="js/solver/solver.js"></script>
+    </head>
+    
+    <body>
+		<div id="header">
+			<div id="header-center">
+				<h1 id="main-header">bento creator</h1>
+			</div>
+            <div id="header-right">
+                <label for="autosolve-option">autosolve</label>
+                <input type="checkbox" id="autosolve-option" onchange="buttonSetAutosolve()">
+                <button id="solve-button" class="ui-button" onclick="buttonSolveNow()">
+                    solve puzzle
+                </button>
+                <button id="clear-button" class="ui-button" onclick="buttonClearSolution()">
+                    clear solution
+                </button>
+                <button id="edit-button" class="ui-button" onclick="buttonChangeGrid()">
+                    change grid size
+                </button>
+                <button id="import-button" class="ui-button" onclick="buttonImportPuzzle()">
+                    import
+                </button>
+                <button id="export-button" class="ui-button" onclick="buttonExportPuzzle()">
+                    export
+                </button>
+            </div>
+		</div>
+        
+        <!-- the game itself -->
+        <div id="left-side" class="main-element">
+            <div id="clues" class="clue-block" oncontextmenu="return false;">
+                <!-- clues will go here -->
+                <p>no clues yet!</p>
+            </div><br>
+            <button id="new-clue-button" class="ui-button" onclick="buttonShowNewClue()">
+                add clue
+            </button>
+            <button id="delete-clue-button" class="ui-button" onclick="buttonSetDeleteClue()">
+                delete clue
+            </button><br><br>
+            <div id="buttons">
+                <!-- buttons will go here -->
+            </div>
+        </div>
+
+        <div id="right-side" class="main-element">
+            <div id="grid">
+                <!-- grid will go here -->
+                <p>Please enable javascript.</p>
+            </div>
+        </div>
+        
+        <!-- modal dialog (appears when a puzzle is solved) -->
+        <div class="modal" id="modal-display" style="display:none">
+            <div class="overlay"></div>
+            <div class="modal-content" id="new-clue-modal" style="display:none">
+                <h2>new clue</h2><br>
+
+                <div class="settings-block">
+                    <label for="clue-size-w">width:</label><br>
+                    <label for="clue-size-h">height:</label><br>
+                </div>
+                <div class="settings-block">
+                    <input style="width:3em" type="number" id="clue-size-w" name="size" min="1" max="5" value="3"><br>
+                    <input style="width:3em" type="number" id="clue-size-h" name="size" min="1" max="5" value="3"><br>
+                </div>
+                <br><br>
+                <button id="modal-button" onclick="modalCreateClue()">
+                    create clue
+                </button>
+                <button id="modal-button" onclick="modalCancel()">
+                    cancel
+                </button>
+            </div>
+
+            <div class="modal-content" id="new-puzzle-modal" style="display:none">
+                <h2>change grid size</h2><br>
+                
+                <div class="settings-block">
+                    <label for="grid-size-w">width:</label><br>
+                    <label for="grid-size-h">height:</label><br>
+                </div>
+                <div class="settings-block">
+                    <input style="width:3em" type="number" id="grid-size-w" name="size" min="2" max="5" value="3"><br>
+                    <input style="width:3em" type="number" id="grid-size-h" name="size" min="2" max="5" value="3"><br>
+                </div>
+                <br><br>
+                <button id="modal-button" onclick="modalCreateGrid()">
+                    resize grid
+                </button>
+                <button id="modal-button" onclick="modalCancel()">
+                    cancel
+                </button>
+            </div>
+            
+            <div class="modal-content" id="warn-modal" style="display:none">
+                <h2>warning!</h2><br>
+                <p>shrinking the grid will reset the puzzle and delete all the clues.</p>
+                
+                <button id="modal-button" onclick="modalProceedShrink()">
+                    continue
+                </button>
+                <button id="modal-button" onclick="modalCancelShrink()">
+                    cancel
+                </button>
+            </div>
+        </div>
+	</body>
+</html>

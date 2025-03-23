@@ -1,0 +1,235 @@
+body {
+	margin: 0;
+	padding: 0;
+	top: 0;
+	font-family: "Helvetica Neue", Arial, sans-serif;
+	text-align: center;
+	background-color: #baffee;
+}
+
+h1 {
+	margin: 0;
+	padding: 5px;
+}
+
+p {
+	margin: 12px;
+	text-align: left;
+}
+
+h4 {
+	margin: 4px;
+}
+
+h3 {
+	margin: 3px;
+}
+
+h2 {
+	margin: 5px;
+}
+
+a:link, a:visited {
+	color: #ff32cc;
+	text-decoration: underline;
+}
+
+#header {
+	width: 100%;
+	background-color: #a9eedd;
+	top: 0;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+
+/* main */
+.main-element {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 20px;
+}
+
+
+/* clues */
+.clue-block {
+	display: inline-block;
+	max-width: 40vw;
+}
+
+.clue-grid {
+	display: inline-block;
+	padding: 6px;
+}
+
+.clue-row {
+	height: 50px;
+	padding: 0.5px;
+}
+
+.clue-item {
+	display: inline;
+	padding: 0.5px;
+}
+
+#clues .tile-50 {
+	background-color: #a9eedd;
+}
+
+
+/* grid */
+.grid-item {
+	display: inline;
+	padding: 1px;
+}
+
+.grid-row {
+	padding: 1px;
+}
+
+.tile-100 {
+	width: 100px;
+	height: 100px;
+	background-color: #bf6135;
+}
+
+.tile-50 {
+	width: 50px;
+	height: 50px;
+}
+
+
+/* buttons */
+.game-button {
+	background: #bf6135;
+	border: none;
+
+	width: 50px;
+	height: 50px;
+	padding: 0;
+	transition: all 0.2s;
+}
+
+.selected-game-button {
+	background: #ff77dd;
+	border: none;
+
+	width: 50px;
+	height: 50px;
+	padding: 0;
+	transition: all 0.2s;
+}
+
+
+
+
+/* menu */
+.menu-class {
+	display: none;
+	overflow-x: hidden;
+	max-width: 650px;
+    padding-bottom: 5px;
+}
+
+.ui-button {
+	font-family: "Helvetica Neue", Arial, sans-serif;
+	background-color: transparent;
+	display: inline-block;
+	border: 0.1em solid;
+	margin: 0.2em;
+	box-sizing: border-box;
+	text-decoration: none;
+	text-align: center;
+	transition: all 0.2s;
+}
+
+.selected-ui-button {
+	font-family: "Helvetica Neue", Arial, sans-serif;
+	color: #000000;
+	background-color: #ff77dd;
+	display: inline-block;
+	border: 0.1em solid;
+	margin: 0.2em;
+	box-sizing: border-box;
+	text-decoration: none;
+	text-align: center;
+	transition: all 0.2s;
+}
+
+.settings-block {
+	display: inline-block;
+}
+
+
+/* phones and tablets should not have hover style */
+@media (hover: hover) {
+	.game-button:hover {
+		background: #ddaa55;
+	}
+
+	.selected-game-button:hover {
+		background: #ffeeee;
+	}
+
+	.ui-button:hover {
+		background-color: #ddaa55;
+	}
+
+	.selected-ui-button:hover {
+		background: #ffeeee;
+	}
+}
+
+
+
+
+/* narrow screen */
+@media screen and (max-aspect-ratio: 1/1) {
+	.clue-block {
+		display: inline-block;
+		max-width: 95vw;
+	}
+}
+
+
+
+/* modal dialog */
+/* thanks https://medium.com/hackernoon/the-ultimate-guide-for-creating-a-simple-modal-component-in-vanilla-javascript-react-angular-8733e2859b42 */
+.modal {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 990;
+}
+
+.modal .overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 995;
+	background: rgba(0,0,0,0.1);
+}
+
+.modal .modal-content {
+	color: #000000;
+	z-index: 999;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -40%);
+	max-height: 90%;
+	overflow: auto;
+	background: #ffeeee;
+	box-sizing: border-box;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	box-shadow: 0 1px 5px rgba(0,0,0,0.7);
+}
