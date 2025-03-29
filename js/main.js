@@ -31,12 +31,6 @@ window.onload = function()
         document.getElementById("autosolve-option").checked = true;
     }
 
-    // now that we've loaded the settings, let's generate a puzzle
-    // but first, let's see if we can load a puzzle!
-    // first we try to load a puzzle from the url
-    if(!loadPuzzleFromURL())
-    {
-        // if that fails, we generate a new puzzle
-        clearPlayerGrid();
-    }
+    // if that fails, we generate a new puzzle
+    clearPlayerGrid();
 };

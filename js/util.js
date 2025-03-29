@@ -48,6 +48,15 @@ function equal(array1, array2)
     return true;
 }
 
+function sameItems(array1, array2)
+{
+    if(array1.sort().join(',') === array2.sort().join(','))
+    {
+        return true;
+    }
+    return false;
+}
+
 
 
 // these next two functions deal with cookies
