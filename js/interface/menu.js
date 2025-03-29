@@ -12,13 +12,12 @@ function buttonSetAutosolve()
 
 function buttonSolveNow()
 {
-    initSolver();
-    solverStep(0);
+    doSolve();
 }
 
 function buttonClearSolution()
 {
-    initSolver();
+    resetSolve();
 }
 
 function buttonChangeGrid()
@@ -61,10 +60,16 @@ function buttonSetDeleteClue()
 
 function buttonImportPuzzle()
 {
-    loadPuzzleFromURL();
+    document.getElementById("modal-display").style.display = "block";
+    document.getElementById("import-modal").style.display = "block";
+    document.getElementById("fname").value = "";
 }
 
 function buttonExportPuzzle()
 {
-    savePuzzleToURL();
-}
+    var url = savePuzzleToURL();
+    document.getElementById("copied-message").innerHTML = " ";
+    document.getElementById("export-text").value = url;
+    document.getElementById("modal-display").style.display = "block";
+    document.getElementById("export-modal").style.display = "block";
+}

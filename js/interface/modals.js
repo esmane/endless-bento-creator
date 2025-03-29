@@ -3,12 +3,10 @@ function modalCancel()
     document.getElementById("modal-display").style.display = "none";
     document.getElementById("new-clue-modal").style.display = "none";
     document.getElementById("new-puzzle-modal").style.display = "none";
+    document.getElementById("export-modal").style.display = "none";
+    document.getElementById("import-modal").style.display = "none";
 }
 
-function modalCreateClue()
-{
-    
-}
 
 function modalCreateGrid(force)
 {
@@ -130,3 +128,26 @@ function modalCancelShrink()
     document.getElementById("new-puzzle-modal").style.display = "block";
     document.getElementById("warn-modal").style.display = "none";    
 }
+
+
+function modalProceedImport()
+{
+    var puzzleData = document.getElementById("fname").value;
+    loadPuzzleFromURL(puzzleData);
+    modalCancel();
+}
+
+
+function modalProceedExport()
+{
+    // thanks https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
+    var copyText = document.getElementById("export-text");
+
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, copyText.value.length); // For mobile devices
+
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.value);
+    document.getElementById("copied-message").innerHTML = "copied!";
+}

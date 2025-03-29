@@ -131,7 +131,7 @@ function setTile(clue, x, y)
     
     if(globalIsAutosolvePuzzle)
     {
-        solverStep(0);
+        doSolve();
     }
 }
 
@@ -145,7 +145,6 @@ function clearTile(clue, x, y)
     
     if(globalIsAutosolvePuzzle)
     {
-        initSolver();
-        solverStep(0);
+        doSolve();
     }
-}
+}
