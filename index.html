@@ -23,12 +23,13 @@
         <script src="js/interface/modals.js"></script>
         <script src="js/solver/solverutil.js"></script>
         <script src="js/solver/solver.js"></script>
+        <script src="js/solver/create-solver.js"></script>
     </head>
     
     <body>
 		<div id="header">
 			<div id="header-center">
-				<h1 id="main-header">bento creator</h1>
+				<h1 id="main-header">endless bento creator</h1>
 			</div>
             <div id="header-right">
                 <label for="autosolve-option">autosolve</label>
@@ -52,6 +53,13 @@
 		</div>
         
         <!-- the game itself -->
+        <div id="right-side" class="main-element">
+            <div id="grid">
+                <!-- grid will go here -->
+                <p>Please enable javascript.</p>
+            </div>
+        </div>
+        
         <div id="left-side" class="main-element">
             <div id="clues" class="clue-block" oncontextmenu="return false;">
                 <!-- clues will go here -->
@@ -68,12 +76,6 @@
             </div>
         </div>
 
-        <div id="right-side" class="main-element">
-            <div id="grid">
-                <!-- grid will go here -->
-                <p>Please enable javascript.</p>
-            </div>
-        </div>
         
         <!-- modal dialog (appears when a puzzle is solved) -->
         <div class="modal" id="modal-display" style="display:none">
@@ -129,6 +131,31 @@
                     cancel
                 </button>
             </div>
+            
+            <div class="modal-content" id="import-modal" style="display:none">
+                <h2>import puzzle</h2><br>
+                <label for="fname">puzzle URL: </label><br>
+                <input type="text" id="fname" name="fname"><br><br>
+                <button id="modal-button" onclick="modalProceedImport()">
+                    import
+                </button>
+                <button id="modal-button" onclick="modalCancel()">
+                    cancel
+                </button>
+            </div>
+            
+            <div class="modal-content" id="export-modal" style="display:none">
+                <h2>export puzzle</h2><br>
+                <label for="export-text">puzzle URL: </label><br>
+                <input type="text" id="export-text" name="export-text"><br><br>                
+                <button id="modal-button" onclick="modalProceedExport()">
+                    copy URL
+                </button>
+                <button id="modal-button" onclick="modalCancel()">
+                    done
+                </button>
+                <p id="copied-message"> </p>
+            </div>
         </div>
 	</body>
-</html>
+</html>
